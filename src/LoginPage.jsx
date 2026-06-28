@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';  // For styling
 
 const LoginPage = () => {
   const [passkey, setPasskey] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Logic for handling login (e.g., validation or API call)
-    alert('Logged in with passkey: ' + passkey);
+    if (passkey.trim()) {
+      // Simulate successful login and redirect to dashboard
+      alert('Logged in with passkey: ' + passkey);
+      navigate('/dashboard');
+    }
   };
 
   return (
